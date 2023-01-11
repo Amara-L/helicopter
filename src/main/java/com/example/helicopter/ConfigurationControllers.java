@@ -1,13 +1,16 @@
 package com.example.helicopter;
 
+import com.example.helicopter.controller.AddNoteController;
 import com.example.helicopter.controller.CaEnManController;
 import com.example.helicopter.controller.CatCountryController;
 import com.example.helicopter.controller.CatEnTypeController;
 import com.example.helicopter.controller.CatHelManController;
+import com.example.helicopter.controller.DeleteNoteController;
 import com.example.helicopter.controller.HelListController;
 import com.example.helicopter.controller.HelSearchController;
 import com.example.helicopter.controller.HelicopController;
 import com.example.helicopter.controller.MainController;
+import com.example.helicopter.controller.UpdateHelicopController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import org.springframework.context.annotation.Bean;
@@ -97,6 +100,36 @@ public class ConfigurationControllers {
     @Bean
     public CaEnManController geCaEnManController() throws IOException {
         return (CaEnManController) getCaEnManView().getController();
+    }
+
+    @Bean(name = "addNoteView")
+    public View addNoteView() throws IOException {
+        return loadView("add_note.fxml");
+    }
+
+    @Bean
+    public AddNoteController addNoteController() throws IOException {
+        return (AddNoteController) addNoteView().getController();
+    }
+
+    @Bean(name = "updateHelicopterView")
+    public View updateHelicopterView() throws IOException {
+        return loadView("update_helicopter.fxml");
+    }
+
+    @Bean
+    public UpdateHelicopController updateHelicopterController() throws IOException {
+        return (UpdateHelicopController) updateHelicopterView().getController();
+    }
+
+    @Bean(name = "deleteNoteView")
+    public View deleteNoteView() throws IOException {
+        return loadView("delete_note.fxml");
+    }
+
+    @Bean
+    public DeleteNoteController deleteNoteController() throws IOException {
+        return (DeleteNoteController) deleteNoteView().getController();
     }
 
     /**

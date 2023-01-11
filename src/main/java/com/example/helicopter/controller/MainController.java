@@ -8,19 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MainController {
 
     @FXML
-    private Button addManEnBut;
-    @FXML
-    private Button addManHeliBut;
-    @FXML
-    private Button addEnTypeBut;
-    @FXML
-    private Button addHelicopterBut;
-    @FXML
-    private Button addCountBut;
-    @FXML
     private Button helicopterSearchBut;
     @FXML
     private Button helicopterListBut;
+    @FXML
+    private Button editNoteBut;
+    @FXML
+    private Button addNoteBut;
+    @FXML
+    private Button deleteNotesBut;
 
     @Autowired
     private Application application;
@@ -28,37 +24,24 @@ public class MainController {
     @FXML
     void initialize() {
 
-        addManEnBut.setOnAction(event -> {
-            application.setStage(1);
-        });
-
-
-        addManHeliBut.setOnAction(event -> {
-            application.setStage(2);
-        });
-
-
-        addEnTypeBut.setOnAction(event -> {
-            application.setStage(3);
-        });
-
-        addHelicopterBut.setOnAction(event -> {
-            application.setStage(4);
-        });
-
-
-        addCountBut.setOnAction(event -> {
-            application.setStage(5);
-        });
-
-
         helicopterSearchBut.setOnAction(event -> {
             application.setStage(6);
         });
 
-
         helicopterListBut.setOnAction(event -> {
             application.setStage(7);
+        });
+
+        editNoteBut.setOnAction(event -> {
+            application.setStage(9);
+        });
+
+        addNoteBut.setOnAction(event -> {
+            application.setStage(10);
+        });
+
+        deleteNotesBut.setOnAction(event -> {
+            application.setStage(11);
         });
 
     }

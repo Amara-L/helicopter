@@ -1,7 +1,7 @@
 package com.example.helicopter.controller;
 
 import com.example.helicopter.Application;
-import com.example.helicopter.HelicopterService;
+import com.example.helicopter.service.HelicopterService;
 import com.example.helicopter.entity.Helicopter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

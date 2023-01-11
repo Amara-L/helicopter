@@ -23,7 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HelicopController {
+public class UpdateHelicopController {
+
+    @FXML
+    private TextField idField;
+    @FXML
+    private Button search;
 
     @FXML
     private Label errorMessageCatHel;
@@ -89,11 +94,13 @@ public class HelicopController {
 
         retback.setOnAction(event -> {
             errorMessageCatHel.setText("");
-            application.setStage(10);
+            setDisableFlag(true);
+            application.setStage(8);
         });
 
         updateTable.setOnAction(event -> {
             errorMessageCatHel.setText("");
+            setDisableFlag(true);
             printData(helicopterService.getHelicopters());
             List<HelicopterManufacturer> engineManufacturers = helicopterManufacturerService.getHelicopterManufacturies();
             List<String> manufacturers = engineManufacturers.stream().map(HelicopterManufacturer::getName).collect(Collectors.toList());
@@ -105,36 +112,66 @@ public class HelicopController {
             manufList.setItems(itemsManufList);
         });
 
+        search.setOnAction(event -> {
+            if (idField.getText().equals("")) {
+                errorMessageCatHel.setText("Введите идентификатор записи");
+                setDisableFlag(true);
+            } else {
+                try {
+                    errorMessageCatHel.setText("");
+                    Long id = Long.valueOf(idField.getText());
+                    Helicopter helicopterLast = helicopterService.getHelicopterById(id);
+                    if (helicopterLast != null) {
+                        setDisableFlag(false);
+                        nameHeli.setText(helicopterLast.getName());
+                        seatsHeli.setText(helicopterLast.getNumberSeats().toString());
+                        yearHeli.setText(helicopterLast.getYear().toString());
+                        fuelHeli.setText(helicopterLast.getFuelConsumption().toString());
+                        manufList.setValue(helicopterLast.getManufacturer().getName());
+                        engineTypeList.setValue(helicopterLast.getEngineType().getName());
+                    } else {
+                        errorMessageCatHel.setText("Запись с указанным идентификатором не найдена");
+                        setDisableFlag(true);
+                    }
+                } catch (NumberFormatException e) {
+                    errorMessageCatHel.setText("Введите числовое значение");
+                    setDisableFlag(true);
+                }
+            }
+        });
+
         enterCatHelBut.setOnAction(event -> {
-            if (nameHeli.getText().equals("") || seatsHeli.getText().equals("")
+            if (idField.getText().equals("")
+                    || nameHeli.getText().equals("") || seatsHeli.getText().equals("")
                     || yearHeli.getText().equals("") || fuelHeli.getText().equals("")
                     || engineTypeList.getValue().equals("")
                     || manufList.getValue().equals("")) {
                 errorMessageCatHel.setText("Поля не должны быть пустыми");
             } else {
                 try {
+                    Long id = Long.valueOf(idField.getText());
                     Integer year = Integer.valueOf(yearHeli.getText());
                     Integer seats = Integer.valueOf(seatsHeli.getText());
                     Double fuel = Double.valueOf(fuelHeli.getText());
                     errorMessageCatHel.setText("");
-                    Helicopter helicopterLast = helicopterService.findHelicopterByName(nameHeli.getText());
-                    if (helicopterLast == null) {
-                        Helicopter helicopterNew = new Helicopter();
-                        helicopterNew.setName(nameHeli.getText());
-                        helicopterNew.setYear(year);
-                        helicopterNew.setNumberSeats(seats);
-                        helicopterNew.setFuelConsumption(fuel);
+                    Helicopter helicopterOther = helicopterService.findHelicopterByName(nameHeli.getText());
+                    Helicopter helicopterLast = helicopterService.getHelicopterById(id);
+                    if (helicopterOther == null || helicopterLast.getId().equals(helicopterOther.getId())) {
+                        helicopterLast.setName(nameHeli.getText());
+                        helicopterLast.setYear(year);
+                        helicopterLast.setNumberSeats(seats);
+                        helicopterLast.setFuelConsumption(fuel);
                         HelicopterManufacturer manufacturer
                                 = helicopterManufacturerService.findHelicopterManufacturerByName(manufList.getValue());
                         EngineType engineType
                                 = engineTypeService.findEngineTypeByName(engineTypeList.getValue());
                         if (manufacturer != null) {
                             if (engineType != null) {
-                                helicopterNew.setManufacturer(manufacturer);
-                                helicopterNew.setEngineType(engineType);
-                                helicopterService.addHelicopter(helicopterNew);
+                                helicopterLast.setManufacturer(manufacturer);
+                                helicopterLast.setEngineType(engineType);
+                                helicopterService.addHelicopter(helicopterLast);
                                 printData(helicopterService.getHelicopters());
-                                errorMessageCatHel.setText("Запись успешно добавлена");
+                                errorMessageCatHel.setText("Запись успешно обновлена");
                             } else {
                                 errorMessageCatHel.setText("Тип двигателя не найден");
                             }
@@ -161,6 +198,16 @@ public class HelicopController {
         manufacturerColumn.setCellValueFactory(new PropertyValueFactory<Helicopter, HelicopterManufacturer>("manufacturer"));
         engineColumn.setCellValueFactory(new PropertyValueFactory<Helicopter, EngineType>("engineType"));
         helicopterTableView.setItems(FXCollections.observableArrayList(helicopters));
+    }
+
+    private void setDisableFlag(Boolean flag) {
+        nameHeli.setDisable(flag);
+        seatsHeli.setDisable(flag);
+        yearHeli.setDisable(flag);
+        fuelHeli.setDisable(flag);
+        enterCatHelBut.setDisable(flag);
+        manufList.setDisable(flag);
+        engineTypeList.setDisable(flag);
     }
 
 }

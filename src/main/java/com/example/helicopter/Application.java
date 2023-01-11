@@ -49,6 +49,18 @@ public class Application extends AbstractJavaFxApplicationSupport {
     @Qualifier("caEnManView")
     private ConfigurationControllers.View caEnManView;
 
+    @Autowired
+    @Qualifier("addNoteView")
+    private ConfigurationControllers.View addNoteView;
+
+    @Autowired
+    @Qualifier("updateHelicopterView")
+    private ConfigurationControllers.View updateHelicopterView;
+
+    @Autowired
+    @Qualifier("deleteNoteView")
+    private ConfigurationControllers.View deleteNoteView;
+
     private static Scene caEnManScene;
     private static Scene catHelManScene;
     private static Scene catEnTypeScene;
@@ -57,6 +69,9 @@ public class Application extends AbstractJavaFxApplicationSupport {
     private static Scene helSearchScene;
     private static Scene helListScene;
     private static Scene mainScene;
+    private static Scene addNoteScene;
+    private static Scene deleteNoteScene;
+    private static Scene editNoteScene;
 
     private static Stage stageMain;
 
@@ -103,6 +118,18 @@ public class Application extends AbstractJavaFxApplicationSupport {
             case 8:
                 if (mainScene == null) mainScene = new Scene(mainView.getView());
                 stageMain.setScene(mainScene);
+                break;
+            case 9:
+                if (editNoteScene == null) editNoteScene = new Scene(updateHelicopterView.getView());
+                stageMain.setScene(editNoteScene);
+                break;
+            case 10:
+                if (addNoteScene == null) addNoteScene = new Scene(addNoteView.getView());
+                stageMain.setScene(addNoteScene);
+                break;
+            case 11:
+                if (deleteNoteScene == null) deleteNoteScene = new Scene(deleteNoteView.getView());
+                stageMain.setScene(deleteNoteScene);
                 break;
         }
     }

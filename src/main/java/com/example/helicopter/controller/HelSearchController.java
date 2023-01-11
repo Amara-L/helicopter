@@ -1,7 +1,7 @@
 package com.example.helicopter.controller;
 
 import com.example.helicopter.Application;
-import com.example.helicopter.HelicopterService;
+import com.example.helicopter.service.HelicopterService;
 import com.example.helicopter.entity.Helicopter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -81,9 +81,9 @@ public class HelSearchController {
                 if (varr.getSelectedToggle().equals(var1)) {
                     helicopters = helicopterService.searchByNameHelicopters(key.getText());
                 } else if (varr.getSelectedToggle().equals(var2)) {
-                    helicopters = helicopterService.searchByNameHelicopters(key.getText());
+                    helicopters = helicopterService.searchByManufHelicopters(key.getText());
                 } else if (varr.getSelectedToggle().equals(var3)) {
-                    helicopters = helicopterService.searchByNameHelicopters(key.getText());
+                    helicopters = helicopterService.searchByEngineHelicopters(key.getText());
                 }
                 searchData.setText(helicopterService.createText(helicopters));
             }

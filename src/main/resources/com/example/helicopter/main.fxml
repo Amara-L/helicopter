@@ -5,20 +5,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helicopter.controller.MainController">
    <children>
-      <Button fx:id="addManEnBut" layoutX="34.0" layoutY="242.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить производителя двигателей вертолетов" />
-      <Button fx:id="addManHeliBut" layoutX="34.0" layoutY="302.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить производителей вертолетов" />
-      <Button fx:id="addEnTypeBut" layoutX="34.0" layoutY="364.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить тип двигателя" />
-      <Button fx:id="addHelicopterBut" layoutX="34.0" layoutY="482.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить вертолет" />
-      <Button fx:id="addCountBut" layoutX="34.0" layoutY="424.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить страну" />
-      <Button fx:id="helicopterSearchBut" layoutX="34.0" layoutY="183.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Поиск по записям" />
-      <Button fx:id="helicopterListBut" layoutX="34.0" layoutY="125.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Вывести список записей" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="53.0" prefHeight="34.0" prefWidth="433.0" text="Выберите действие" textFill="#000000ab">
+      <Button fx:id="helicopterSearchBut" layoutX="34.0" layoutY="338.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="532.0" text="Поиск по записям" />
+      <Button fx:id="helicopterListBut" layoutX="34.0" layoutY="112.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="532.0" text="Вывести список всех записей" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="35.0" prefHeight="34.0" prefWidth="433.0" text="Выберите действие" textFill="#000000ab">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="editNoteBut" layoutX="34.0" layoutY="263.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="532.0" text="Редактировать запись" />
+      <Button fx:id="addNoteBut" layoutX="34.0" layoutY="188.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="532.0" text="Добавить запись" />
+      <Button fx:id="deleteNotesBut" layoutX="34.0" layoutY="415.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="532.0" text="Удалить запись" />
    </children>
 </AnchorPane>

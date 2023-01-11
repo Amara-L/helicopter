@@ -1,4 +1,4 @@
-package com.example.helicopter;
+package com.example.helicopter.service;
 
 import com.example.helicopter.entity.Helicopter;
 import com.example.helicopter.repository.HelicopterRepository;
@@ -16,6 +16,10 @@ public class HelicopterService {
 
     public List<Helicopter> getHelicopters() {
         return helicopterRepository.findAll();
+    }
+
+    public Helicopter findHelicopterByName(String name) {
+        return helicopterRepository.findHelicopterByName(name);
     }
 
     public List<Helicopter> searchByNameHelicopters(String name) {
@@ -50,7 +54,8 @@ public class HelicopterService {
 
     public String createText(List<Helicopter> helicopters) {
         if (helicopters == null) return "";
-        StringBuilder stringBuilder = new StringBuilder("Список записей:\n------------------------------------------");
+        StringBuilder stringBuilder = new StringBuilder("Количество записей: ").append(helicopters.size())
+                .append("\n").append("Список записей:\n------------------------------------------");
         for (Helicopter helicopter : helicopters) {
             stringBuilder
                     .append("\nЗапись ").append(helicopter.getId())
@@ -82,6 +87,19 @@ public class HelicopterService {
                     .append("\n------------------------------------------");
         }
         return stringBuilder.toString();
+    }
+
+    public Helicopter getHelicopterById(Long id) {
+        return helicopterRepository.findById(id).orElse(null);
+    }
+
+    public void deleteHelicopterById(Long id) {
+        helicopterRepository.findById(id).ifPresent(helicopter ->
+                helicopterRepository.delete(helicopter));
+    }
+
+    public Helicopter addHelicopter(Helicopter helicopter) {
+        return helicopterRepository.save(helicopter);
     }
 
 }

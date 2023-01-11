@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helicopter.controller.AddNoteController">
+    <children>
+        <Button fx:id="addManEnBut" layoutX="34.0" layoutY="116.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить производителя двигателей вертолетов" />
+        <Button fx:id="addManHeliBut" layoutX="34.0" layoutY="185.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить производителей вертолетов" />
+        <Button fx:id="addEnTypeBut" layoutX="34.0" layoutY="257.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить тип двигателя" />
+        <Button fx:id="addHelicopterBut" layoutX="34.0" layoutY="399.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить вертолет" />
+        <Button fx:id="addCountBut" layoutX="34.0" layoutY="331.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="532.0" text="Добавить страну" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="53.0" prefHeight="34.0" prefWidth="433.0" text="Выберите действие" textFill="#000000ab">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </Label>
+      <Button fx:id="retback" layoutX="24.0" layoutY="516.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="Назад" />
+    </children>
+</AnchorPane>

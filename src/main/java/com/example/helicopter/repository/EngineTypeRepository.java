@@ -4,4 +4,5 @@ import com.example.helicopter.entity.EngineType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EngineTypeRepository extends JpaRepository<EngineType, Long> {
+    EngineType findEngineTypeByName(String name);
 }
