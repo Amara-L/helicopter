@@ -1,0 +1,11 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.env
+
+target/
+logs/
+LOG_FILE
+docker/_data
