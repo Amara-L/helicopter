@@ -50,7 +50,7 @@ public class HelicopController {
     private Button retback;
 
     @FXML
-    private TableView<Helicopter> helicopterTableView;
+    private TableView helicopterTableView;
     @FXML
     private TableColumn<Helicopter, Long> idColumn;
     @FXML

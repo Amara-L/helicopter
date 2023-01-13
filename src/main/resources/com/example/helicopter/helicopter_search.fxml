@@ -3,13 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helicopter.controller.HelSearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helicopter.controller.HelSearchController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="23.0" prefHeight="34.0" prefWidth="433.0" text="Выберите фильтр" textFill="#000000ab">
             <font>
@@ -34,8 +35,25 @@
       <TextField fx:id="diap2" layoutX="458.0" layoutY="135.0" prefHeight="26.0" prefWidth="71.0" />
       <Button fx:id="entDiap" layoutX="347.0" layoutY="157.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="182.0" text="Ввод диапазона" />
       <Label layoutX="424.0" layoutY="139.0" text="&lt; N &lt;" />
-      <TextArea fx:id="searchData" layoutX="18.0" layoutY="195.0" prefHeight="306.0" prefWidth="559.0" />
       <Button fx:id="retback" layoutX="19.0" layoutY="516.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="Назад" />
       <Label fx:id="errorMessage" layoutX="14.0" layoutY="14.0" prefHeight="4.0" prefWidth="427.0" textFill="RED" />
+      <TableView fx:id="helicopterTableView" layoutY="183.0" prefHeight="315.0" prefWidth="2000.0">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="53.60000765323639" text="id" />
+            <TableColumn fx:id="nameColumn" prefWidth="131.20000457763672" text="name" />
+            <TableColumn fx:id="yearColumn" prefWidth="63.99993896484375" text="year" />
+            <TableColumn fx:id="seatsColumn" prefWidth="65.60003662109375" text="seats" />
+            <TableColumn fx:id="fuelColumn" prefWidth="99.99993896484375" text="fuel" />
+            <TableColumn fx:id="manufacturerId" prefWidth="100.80001831054688" text="manufacturer id" />
+            <TableColumn fx:id="manufacturerName" prefWidth="260.79998779296875" text="manufacturer name" />
+            <TableColumn fx:id="manufacturerCount" prefWidth="187.20001220703125" text="manufacturer country" />
+            <TableColumn fx:id="engineId" prefWidth="60.79998779296875" text="engine id" />
+            <TableColumn fx:id="engineName" prefWidth="271.9998779296875" text="engine name" />
+            <TableColumn fx:id="engineYear" prefWidth="110.4000244140625" text="engine year" />
+            <TableColumn fx:id="engineMaId" prefWidth="157.5999755859375" text="engine manufacturer id" />
+            <TableColumn fx:id="engineMaName" prefWidth="183.2000732421875" text="engine manufacturer name" />
+            <TableColumn fx:id="engineMaCount" prefWidth="243.199951171875" text="engine manufacturer country" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>

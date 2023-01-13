@@ -3,12 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helicopter.controller.DeleteNoteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helicopter.controller.DeleteNoteController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="53.0" prefHeight="34.0" prefWidth="433.0" text="Выберите параметры для удаления записи" textFill="#000000ab">
             <font>
@@ -22,10 +24,29 @@
       <Label layoutX="24.0" layoutY="113.0" text="Идентификатор" />
       <TextField fx:id="idField" layoutX="130.0" layoutY="110.0" prefHeight="26.0" prefWidth="75.0" />
       <Label layoutX="265.0" layoutY="113.0" prefHeight="18.0" prefWidth="58.0" text="Таблица" />
-      <TextArea fx:id="dataField" disable="true" layoutX="30.0" layoutY="162.0" prefHeight="346.0" prefWidth="542.0">
+      <TextArea fx:id="dataField" disable="true" layoutX="30.0" layoutY="162.0" prefHeight="97.0" prefWidth="542.0">
          <font>
             <Font name="System Bold" size="10.0" />
          </font></TextArea>
-      <Button fx:id="okBut" disable="true" layoutX="469.0" layoutY="516.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="102.0" text="Подтвердить" />
+      <Button fx:id="okBut" disable="true" layoutX="469.0" layoutY="279.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="102.0" text="Подтвердить" />
+      <TableView fx:id="helicopterTableView" layoutX="6.0" layoutY="308.0" prefHeight="210.0" prefWidth="1987.0">
+          <columns>
+              <TableColumn fx:id="idColumn" prefWidth="53.60000765323639" text="id" />
+              <TableColumn fx:id="nameColumn" prefWidth="131.20000457763672" text="name" />
+              <TableColumn fx:id="yearColumn" prefWidth="63.99993896484375" text="year" />
+              <TableColumn fx:id="seatsColumn" prefWidth="65.60003662109375" text="seats" />
+              <TableColumn fx:id="fuelColumn" prefWidth="99.99993896484375" text="fuel" />
+              <TableColumn fx:id="manufacturerId" prefWidth="100.80001831054688" text="manufacturer id" />
+              <TableColumn fx:id="manufacturerName" prefWidth="260.79998779296875" text="manufacturer name" />
+              <TableColumn fx:id="manufacturerCount" prefWidth="187.20001220703125" text="manufacturer country" />
+              <TableColumn fx:id="engineId" prefWidth="60.79998779296875" text="engine id" />
+              <TableColumn fx:id="engineName" prefWidth="271.9998779296875" text="engine name" />
+              <TableColumn fx:id="engineYear" prefWidth="110.4000244140625" text="engine year" />
+              <TableColumn fx:id="engineMaId" prefWidth="157.5999755859375" text="engine manufacturer id" />
+              <TableColumn fx:id="engineMaName" prefWidth="183.2000732421875" text="engine manufacturer name" />
+              <TableColumn fx:id="engineMaCount" prefWidth="243.199951171875" text="engine manufacturer country" />
+          </columns>
+      </TableView>
+      <Button fx:id="updateBut" layoutX="424.0" layoutY="518.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="Обновить" />
     </children>
 </AnchorPane>
